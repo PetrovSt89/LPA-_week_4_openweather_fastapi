@@ -1,8 +1,9 @@
 import requests
 
+from config import API_KEY
+
 
 def parse_from_openweather(city: str) -> dict:
-    API_KEY = '389fd44f904b18ef2ea61a8632c64256'
     return requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={API_KEY}').json()
 
 

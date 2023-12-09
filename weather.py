@@ -9,7 +9,6 @@ temp = parse(SITY)
 
 app = FastAPI()
 
-
 @app.get("/")
 def weather():
     return {'приветствую друг': 'введи урл  /weather/'}

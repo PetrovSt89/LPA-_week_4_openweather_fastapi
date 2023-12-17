@@ -1,10 +1,10 @@
 import requests
 
-from config import API_KEY
+from config import api_key, city
 
 
-def parse_from_openweather(city: str) -> dict:
-    return requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={API_KEY}').json()
+def parse_from_openweather() -> dict:
+    return requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}').json()
 
 
 def parse_temp(data) -> float|str:
@@ -16,11 +16,11 @@ def parse_temp(data) -> float|str:
 
 
 
-def parse(city: str) -> float:
-    weather = parse_from_openweather(city=city)
+def parse() -> float:
+    weather = parse_from_openweather()
     temp = parse_temp(data=weather)
     return temp
 
 
 if __name__ == "__main__":
-    print(parse(city="Moscow"))
+    print(parse(city))

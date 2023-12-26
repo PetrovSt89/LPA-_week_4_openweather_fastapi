@@ -1,14 +1,12 @@
 from fastapi import FastAPI
 
+from config import city
 from parse import parse
 
 
-SITY = 'Moscow'
-
-temp = parse(SITY)
+temp = parse()
 
 app = FastAPI()
-
 
 @app.get("/")
 def weather():
@@ -17,4 +15,4 @@ def weather():
 
 @app.get("/weather/")
 def weather():
-    return {SITY: temp}
+    return {city: temp}
